@@ -3,12 +3,14 @@ package main_test
 import (
 	"testing"
 
+	"github.com/jazaret/go-lambda"
+
 	"github.com/aws/aws-lambda-go/events"
-	main "github.com/jazaret/go-lambda"
 	"github.com/stretchr/testify/assert"
 )
 
 func TestHandler(t *testing.T) {
+
 	tests := []struct {
 		request events.APIGatewayProxyRequest
 		expect  string
@@ -31,8 +33,9 @@ func TestHandler(t *testing.T) {
 	}
 
 	for _, test := range tests {
-		response, err := main.Handler(test.request)
+		response, err := main.HandlerHello(test.request)
 		assert.IsType(t, test.err, err)
 		assert.Equal(t, test.expect, response.Body)
 	}
+
 }

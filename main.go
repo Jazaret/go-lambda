@@ -31,7 +31,7 @@ func init() {
 
 	// Use aws sdk to connect to dynamoDB
 	if session, err := session.NewSession(&aws.Config{Region: &region}); err != nil {
-		log.Printf("Failed to connect to AWS NewSession: %n\n", err.Error())
+		log.Printf("Failed to connect to AWS NewSession: %s\n", err.Error())
 	} else {
 		dynamo = dynamodb.New(session) // Create DynamoDB client
 	}
