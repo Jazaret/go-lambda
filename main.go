@@ -69,11 +69,11 @@ func HandlerHello(request events.APIGatewayProxyRequest) (events.APIGatewayProxy
 	}
 
 	response := events.APIGatewayProxyResponse{
-		Body:       "Helloo " + request.Body,
+		Body:       "Hello " + request.Body,
 		StatusCode: 200,
 	}
 
-	log.Printf("%+v\n",response)
+	log.Printf("%+v\n", response)
 
 	return response, nil
 
